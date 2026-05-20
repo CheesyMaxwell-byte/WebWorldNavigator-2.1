@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://w3.org">
+<html xmlns="http://w3.org">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>WebWorldNavigator 2 - Suchdienst</title>
+    <style type="text/css">
+        body {
+            font-family: Tahoma, "MS Sans Serif", Arial, sans-serif;
+            background-color: #245DDA;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+        }
+        .window {
+            width: 580px;
+            margin: 100px auto 0 auto;
+            background-color: #ECE9D8;
+            border: 3px solid #0054E3;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+        }
+        .title-bar {
+            background-color: #0058E4; 
+            background: linear-gradient(to bottom, #0058E4 0%, #2480FF 10%, #0058E4 100%);
+            padding: 4px 8px;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 13px;
+        }
+        .content {
+            padding: 30px;
+            text-align: center;
+            background-color: #FFFFFF;
+            margin: 4px;
+            border: 2px inset #FFFFFF;
+        }
+        
+        /* === 2000er RETRO LOGO DESIGN === */
+        .logo { 
+            font-family: "Trebuchet MS", Arial, sans-serif; 
+            font-size: 34px; 
+            font-weight: bold; 
+            letter-spacing: -1px;
+        }
+        .logo-wwn { color: #003399; }
+        .logo-two { 
+            color: #FF9900; 
+            font-style: italic;
+            font-size: 38px;
+            margin-left: 2px;
+        }
+        .logo-sub {
+            font-size: 11px;
+            color: #555555;
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
+        .copyright {
+            font-size: 10px;
+            color: #888888;
+            margin-top: 20px;
+        }
+
+        /* === INPUTFELDER & BUTTONS === */
+        .search-input { width: 320px; padding: 4px; border: 2px inset #ECE9D8; font-family: Tahoma, sans-serif; }
+        .search-button { padding: 4px 15px; background-color: #ECE9D8; border: 2px outset #FFFFFF; cursor: pointer; font-family: Tahoma, sans-serif; }
+        
+        .homepage-link {
+            display: block;
+            margin-top: 15px;
+            color: #0000FF;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* === BROWSER-BLOCKER (ERROR 1442) === */
+        #error-screen {
+            display: none;
+            color: #000000;
+        }
+        .error-title {
+            color: #CC0000;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .logo-container {
+            margin-top: 25px;
+            padding: 10px;
+            background-color: #F5F5F5;
+            border: 1px dashed #716F64;
+        }
+        .ie-logo-box {
+            display: inline-block;
+            width: 100px;
+            margin: 10px;
+            font-size: 11px;
+            vertical-align: top;
+        }
+        .xp-btn {
+            margin-top: 15px;
+            padding: 4px 12px;
+            font-family: Tahoma, sans-serif;
+            background-color: #ECE9D8;
+            border-top: 1px solid #FFFFFF;
+            border-left: 1px solid #FFFFFF;
+            border-bottom: 2px solid #716F64;
+            border-right: 2px solid #716F64;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Originaler Windows XP "Dindun" Sound -->
+<audio id="error-sound" src="https://archive.org" preload="auto"></audio>
+
+<div class="window">
+    <div class="title-bar" id="window-title">WebWorldNavigator 2 - Suchfenster</div>
+    
+    <div class="content">
+        
+        <!-- BEREICH 1: DIE SUCHMASCHINE -->
+        <div id="search-screen">
+            <div class="logo"><span class="logo-wwn">WebWorldNavigator</span><span class="logo-two">2</span></div>
+            <div class="logo-sub">Ihr sicherer Torweg ins World Wide Web (Optimiert für IE 1.0 - 11.0)</div>
+            
+            <form action="https://duckduckgo.com" method="get" target="_self">
+                <input type="text" name="q" class="search-input" value="" autocomplete="off" />
+                <input type="submit" value="Suchen" class="search-button" />
+            </form>
+            
+            <a class="homepage-link" id="hp-button" href="#" onclick="setAsHomepage(this)">[ Als Startseite einrichten ]</a>
+            
+            <!-- Der 2000er Hit Counter -->
+            <div style="margin-top: 25px; padding: 5px; background-color: #ECE9D8; border: 1px inset #FFFFFF; display: inline-block;">
+                <span style="font-size: 10px; color: #555555; display: block; margin-bottom: 3px;">Besucher seit Start:</span>
+                <div id="counter-box"></div>
+            </div>
+            
+            <div class="copyright">Copyright 1999-2026 WWN2. Alle Rechte vorbehalten.</div>
+        </div>
+
+        <!-- BEREICH 2: DER ERROR-SCREEN (Icons erfolgreich repariert) -->
+        <div id="error-screen">
+            <div class="error-title">Error 1442: Ihr Browser wird nicht mehr unterstützt.</div>
+            <p>Der Zugriff auf den WebWorldNavigator 2 ist ausschließlich mit dem originalen, eigenständigen Microsoft Internet Explorer gestattet. Der Edge IE-Modus ist verboten!</p>
+            
+            <button class="xp-btn" onclick="playChord()">Fehlermeldung abspielen (Dindun)</button>
+            
+            <div class="logo-container">
+                <strong>Unterstützte Browser:</strong><br /><br />
+                
+                <div class="ie-logo-box">
+                    <div style="font-size: 32px; color: #003399; font-weight: bold; font-family: 'Times New Roman', serif;">IE</div>
+                    IE 1.0 - 2.0
+                </div>
+                
+                <div class="ie-logo-box">
+                    <div style="font-size: 32px; color: #0054E3; font-weight: bold; text-shadow: 1px 1px #888888;">e</div>
+                    IE 3.0 - 6.0
+                </div>
+                
+                <div class="ie-logo-box">
+                    <div style="font-size: 32px; color: #0099FF; font-weight: bold; font-style: italic;">e</div>
+                    IE 7.0 - 8.0
+                </div>
+                
+                <div class="ie-logo-box">
+                    <div style="font-size: 32px; color: #0066CC; font-weight: bold;">e</div>
+                    IE 9.0 - 11.0
+                </div>
+            </div>
+            
+            <div class="copyright">Copyright 1999-2026 WWN2. Alle Rechte vorbehalten.</div>
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    var isGenuineIE = false;
+
+    // 1. Erkennt jeden Browser mit IE-Kern
+    var looksLikeIE = (navigator.userAgent.indexOf('Trident/') > -1 || document.all);
+
+    // 2. Anti-Edge-IE-Modus-Schutz
+    var isEdgeIEMode = false;
+    if (looksLikeIE) {
+        if (window.chrome || (navigator.userAgent.indexOf('Edge/') > -1) || (navigator.userAgent.indexOf('Edg/') > -1)) {
+            isEdgeIEMode = true;
+        }
+    }
+
+    // Nur echter IE kommt durch
+    if (looksLikeIE && !isEdgeIEMode) {
+        isGenuineIE = true;
+    }
+
+    // Startseiten-Logik
+    function setAsHomepage(obj) {
+        if (obj.setHomePage) {
+            obj.style.behavior = 'url(#default#homepage)';
+            obj.setHomePage(window.location.href);
+        } else {
+            alert("Um den WebWorldNavigator 2 als Startseite festzulegen, drücke bitte ALT + V, wähle 'Internetoptionen' und trage dort deine GitHub-Adresse ein.");
+        }
+        return false;
+    }
+
+    // Sound-Logik
+    function playChord() {
+        var sound = document.getElementById('error-sound');
+        if(sound && sound.play) {
+            sound.play().catch(function(e) { console.log("Audio blockiert"); });
+        }
+    }
+
+    // Hit Counter für GitHub Pages
+    var currentUrl = window.location.href;
+    var baseUrl = currentUrl.split('?')[0].split('#')[0]; 
+    var cleanUrl = encodeURIComponent(baseUrl);
+    var counterBox = document.getElementById('counter-box');
+    if (counterBox) {
+        counterBox.innerHTML = '<img src="https://seeyoufarm.com' + cleanUrl + '&count_bg=%23000000&title_bg=%23000000&icon=&icon_color=%23E7E7E7&title=Hits&edge_flat=true" alt="Hit Counter" style="border: 1px solid #716F64; vertical-align: middle;" />';
+    }
+
+    // Blockade aktivieren, wenn falscher Browser
+    if (!isGenuineIE) {
+        document.getElementById('search-screen').style.display = 'none';
+        document.getElementById('error-screen').style.display = 'block';
+        document.getElementById('window-title').innerHTML = 'Systemfehler - Zugriff verweigert';
+        
+        playChord();
+        document.body.onclick = playChord;
+    }
+</script>
+
+</body>
+</html>
