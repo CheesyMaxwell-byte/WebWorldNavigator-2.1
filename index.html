@@ -122,7 +122,7 @@
     
     <div class="content">
         
-        <!-- BEREICH 1: DIE SUCHMASCHINE -->
+        <!-- BEREICH 1: DIE SUCHMASCHINE (Sichtbar nur im erlaubten echten IE) -->
         <div id="search-screen">
             <div class="logo"><span class="logo-wwn">WebWorldNavigator</span><span class="logo-two">2</span></div>
             <div class="logo-sub">Ihr sicherer Torweg ins World Wide Web (Optimiert für IE 1.0 - 11.0)</div>
@@ -143,7 +143,7 @@
             <div class="copyright">Copyright 1999-2026 WWN2. Alle Rechte vorbehalten.</div>
         </div>
 
-        <!-- BEREICH 2: DER ERROR-SCREEN (Icons erfolgreich repariert) -->
+        <!-- BEREICH 2: DER ERROR-SCREEN (Alle Bilder auf .png korrigiert) -->
         <div id="error-screen">
             <div class="error-title">Error 1442: Ihr Browser wird nicht mehr unterstützt.</div>
             <p>Der Zugriff auf den WebWorldNavigator 2 ist ausschließlich mit dem originalen, eigenständigen Microsoft Internet Explorer gestattet. Der Edge IE-Modus ist verboten!</p>
@@ -154,22 +154,22 @@
                 <strong>Unterstützte Browser:</strong><br /><br />
                 
                 <div class="ie-logo-box">
-                    <div style="font-size: 32px; color: #003399; font-weight: bold; font-family: 'Times New Roman', serif;">IE</div>
+                    <img src="ie2.png" alt="IE2" style="width:50px; height:50px; display:block; margin:0 auto 5px auto;" />
                     IE 1.0 - 2.0
                 </div>
                 
                 <div class="ie-logo-box">
-                    <div style="font-size: 32px; color: #0054E3; font-weight: bold; text-shadow: 1px 1px #888888;">e</div>
+                    <img src="ie6.png" alt="IE6" style="width:50px; height:50px; display:block; margin:0 auto 5px auto;" />
                     IE 3.0 - 6.0
                 </div>
                 
                 <div class="ie-logo-box">
-                    <div style="font-size: 32px; color: #0099FF; font-weight: bold; font-style: italic;">e</div>
+                    <img src="ie8.png" alt="IE8" style="width:50px; height:50px; display:block; margin:0 auto 5px auto;" />
                     IE 7.0 - 8.0
                 </div>
                 
                 <div class="ie-logo-box">
-                    <div style="font-size: 32px; color: #0066CC; font-weight: bold;">e</div>
+                    <img src="ie11.png" alt="IE11" style="width:50px; height:50px; display:block; margin:0 auto 5px auto;" />
                     IE 9.0 - 11.0
                 </div>
             </div>
@@ -220,7 +220,7 @@
 
     // Hit Counter für GitHub Pages
     var currentUrl = window.location.href;
-    var baseUrl = currentUrl.split('?')[0].split('#')[0]; 
+    var baseUrl = currentUrl.split('?').split('#'); 
     var cleanUrl = encodeURIComponent(baseUrl);
     var counterBox = document.getElementById('counter-box');
     if (counterBox) {
